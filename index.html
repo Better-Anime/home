@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Anime Search</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .logo {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-bar {
+            padding: 10px;
+            width: 300px;
+            font-size: 1em;
+        }
+        .results {
+            margin-top: 20px;
+            width: 300px;
+            max-height: 350px; /* Set a maximum height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+        }
+        .result-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .result-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Better Anime</div>
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchBar" placeholder="Search for an anime...">
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        let animeSeries = [];
+
+        fetch('https://raw.githubusercontent.com/Better-Anime/home/refs/heads/main/series-catalog.json')
+            .then(response => response.json())
+            .then(data => {
+                animeSeries = data;
+            })
+            .catch(error => console.error('Error fetching the anime series:', error));
+
+        document.getElementById('searchBar').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchAnime();
+            }
+        });
+
+        function searchAnime() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            if (query === '') {
+                resultsContainer.style.display = 'none';
+                return;
+            } else {
+                resultsContainer.style.display = 'block';
+            }
+
+            const filteredSeries = animeSeries.filter(series => series.name.toLowerCase().includes(query));
+
+            if (filteredSeries.length === 0) {
+                const noResults = document.createElement('div');
+                noResults.textContent = 'No results found';
+                resultsContainer.appendChild(noResults);
+            }
+
+            filteredSeries.forEach(series => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+
+                const coverArt = document.createElement('img');
+                coverArt.src = series.coverArtUrl;
+                resultItem.appendChild(coverArt);
+
+                const name = document.createElement('div');
+                name.textContent = series.name;
+                resultItem.appendChild(name);
+
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+    </script>
+</body>
+</html>
