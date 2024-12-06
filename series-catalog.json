@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Naruto",
+        "coverArtUrl": "https://example.com/naruto.jpg"
+    },
+    {
+        "name": "One Piece",
+        "coverArtUrl": "https://example.com/onepiece.jpg"
+    },
+    {
+        "name": "Attack on Titan",
+        "coverArtUrl": "https://example.com/attackontitan.jpg"
+    },
+    {
+        "name": "My Hero Academia",
+        "coverArtUrl": "https://example.com/myheroacademia.jpg"
+    },
+    {
+        "name": "Demon Slayer",
+        "coverArtUrl": "https://example.com/demonslayer.jpg"
+    }
+]
