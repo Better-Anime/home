@@ -1,17 +1,12 @@
 [
     {
-        "name": "Attack on Titan",
-        "coverArtUrl": "https://i.ebayimg.com/images/g/trUAAOSwEzRkKh8a/s-l400.jpg",
-        "link": "https://example.com/attackontitan"
-    },
-    {
         "name": "Bleach",
         "coverArtUrl": "https://example.com/myheroacademia.jpg",
-        "link": "https://example.com/myheroacademia"
+        "link": "https://i.ebayimg.com/images/g/ubUAAOSwkh1jonmR/s-l400.jpg"
     },
     {
         "name": "Taboo Tattoo",
-        "coverArtUrl": "https://example.com/myheroacademia.jpg",
-        "link": "https://example.com/myheroacademia"
+        "coverArtUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fholiekay%2Fart%2FTaboo-Tattoo-Folder-Icon-633618607&psig=AOvVaw2nnoNkEHDKABep_5RDeebc&ust=1733587007228000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjnrILBk4oDFQAAAAAdAAAAABAJ",
+        "link": "https://better-anime.github.io/watch/taboo-tattoo"
     }
 ]
