@@ -1,22 +1,17 @@
 [
     {
-        "name": "Naruto",
-        "coverArtUrl": "https://example.com/naruto.jpg"
-    },
-    {
-        "name": "One Piece",
-        "coverArtUrl": "https://example.com/onepiece.jpg"
-    },
-    {
         "name": "Attack on Titan",
-        "coverArtUrl": "https://i.ebayimg.com/images/g/trUAAOSwEzRkKh8a/s-l400.jpg"
+        "coverArtUrl": "https://i.ebayimg.com/images/g/trUAAOSwEzRkKh8a/s-l400.jpg",
+        "link": "https://example.com/attackontitan"
     },
     {
-        "name": "My Hero Academia",
-        "coverArtUrl": "https://example.com/myheroacademia.jpg"
+        "name": "Bleach",
+        "coverArtUrl": "https://example.com/myheroacademia.jpg",
+        "link": "https://example.com/myheroacademia"
     },
     {
-        "name": "Demon Slayer",
-        "coverArtUrl": "https://example.com/demonslayer.jpg"
+        "name": "Taboo Tattoo",
+        "coverArtUrl": "https://example.com/myheroacademia.jpg",
+        "link": "https://example.com/myheroacademia"
     }
 ]

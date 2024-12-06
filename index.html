@@ -13,44 +13,73 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #2b3e50;
         }
         .logo {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
+            color: #6ea3d8;
         }
         .search-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #798b9d;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .search-bar {
             padding: 10px;
             width: 300px;
             font-size: 1em;
+            border: 1px solid #004179;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
         .results {
             margin-top: 20px;
             width: 300px;
-            max-height: 350px; /* Set a maximum height */
-            overflow-y: auto; /* Enable vertical scrolling */
-            border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+            max-height: 350px;
+            overflow-y: scroll;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            background-color: #799ec2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+        }
+
+        .results::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
         }
         .result-item {
-            border: 1px solid #ccc;
             padding: 10px;
-            margin-bottom: 10px;
             display: flex;
             align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: #1f374f;
+            border: 2px solid #000000;
+        }
+        .result-item:hover {
+            background-color: #34495E;
         }
         .result-item img {
             width: 50px;
             height: 50px;
+            border-radius: 5px;
+            border: 3px solid #000000;
             margin-right: 10px;
+        }
+        .result-item div {
+            font-size: 1em;
         }
     </style>
 </head>
 <body>
-    <div class="logo">Better Anime</div>
+    <div class="logo"><strong>Better Anime</strong></div>
     <div class="search-container">
         <input type="text" class="search-bar" id="searchBar" placeholder="Search for an anime...">
         <div class="results" id="results"></div>
@@ -93,11 +122,16 @@
             }
 
             filteredSeries.forEach(series => {
-                const resultItem = document.createElement('div');
+                const resultItem = document.createElement('a');
                 resultItem.className = 'result-item';
+                resultItem.href = series.link;
+                resultItem.target = '_blank';
 
                 const coverArt = document.createElement('img');
                 coverArt.src = series.coverArtUrl;
+                coverArt.onerror = function() {
+                    coverArt.src = 'https://raw.githubusercontent.com/Better-Anime/Watch/refs/heads/main/BA.png';
+                };
                 resultItem.appendChild(coverArt);
 
                 const name = document.createElement('div');
